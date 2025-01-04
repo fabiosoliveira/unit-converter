@@ -1,6 +1,10 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+
+	"github.com/fabiosoliveira/unit-converter/pkg/conversion"
+)
 
 func main() {
 	//  conversor de unidades (temperatura, peso, distância) usando entrada e saída no terminal.
@@ -33,5 +37,25 @@ func main() {
 	var valor float64
 	fmt.Scan(&valor)
 
-	fmt.Println(opcao, valor)
+	switch opcao {
+	case 1:
+		// Temperatura
+		fmt.Printf("%.2fºF é igual a %.2fºC\n", valor, conversion.FahrenheitParaCelsius(valor))
+		fmt.Printf("%.2fºF é igual a %.2fK\n", valor, conversion.FahrenheitParaKelvin(valor))
+		fmt.Printf("%.2fºF é igual a %.2fºR\n", valor, conversion.FahrenheitParaRankine(valor))
+		fmt.Printf("%.2fºF é igual a %.2fºC\n", valor, conversion.FahrenheitParaCelsius(valor))
+	case 2:
+		// Peso
+		fmt.Printf("%.2fKg é igual a %.2fLb\n", valor, conversion.KgParaLb(valor))
+		fmt.Printf("%.2fKg é igual a %.2fOz\n", valor, conversion.KgParaOz(valor))
+		fmt.Printf("%.2fKg é igual a %.2fKg\n", valor, valor)
+	case 3:
+		// Distância
+		fmt.Printf("%.2fKm é igual a %.2fMi\n", valor, conversion.KmParaMi(valor))
+		fmt.Printf("%.2fKm é igual a %.2fYd\n", valor, conversion.KmParaYd(valor))
+		fmt.Printf("%.2fKm é igual a %.2fM\n", valor, conversion.KmParaM(valor))
+
+	default:
+		fmt.Println("Opção inválida")
+	}
 }
