@@ -20,14 +20,14 @@ func KgParaLb(valor float64) float64 {
 	return valor * 2.20462
 }
 
-func FahrenheitParaRankine(valor float64) float64 {
-	return valor + 459.67
+func CelsiusParaKelvin(valor float64) float64 {
+	return valor + 273.15
 }
 
-func FahrenheitParaKelvin(valor float64) float64 {
-	return (valor-32)*5/9 + 273.15
+func CelsiusParaFahrenheit(valor float64) float64 {
+	return valor*9/5 + 32
 }
 
-func FahrenheitParaCelsius(valor float64) float64 {
-	return (valor - 32) * 5 / 9
+func CelsiusParaRankine(valor float64) float64 {
+	return (valor + 273.15) * 9 / 5
 }
