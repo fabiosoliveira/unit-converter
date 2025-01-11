@@ -95,58 +95,57 @@ func TestKgParaLb(t *testing.T) {
 	}
 }
 
-func TestFahrenheitParaRankine(t *testing.T) {
+func TestCelsiusParaKelvin(t *testing.T) {
 	tests := []struct {
 		input    float64
 		expected float64
 	}{
-		{32, 491.67},
-		{212, 671.67},
+		{0, 273.15},
+		{-273.15, 0},
+		{100, 373.15},
 	}
 
 	for _, test := range tests {
-		result := FahrenheitParaRankine(test.input)
+		result := CelsiusParaKelvin(test.input)
+		if result != test.expected {
+			t.Errorf("CelsiusParaKelvin(%f) = %f; expected %f", test.input, result, test.expected)
+		}
+	}
+}
+
+func TestCelsiusParaFahrenheit(t *testing.T) {
+	tests := []struct {
+		input    float64
+		expected float64
+	}{
+		{0, 32},
+		{-40, -40},
+		{100, 212},
+	}
+
+	for _, test := range tests {
+		result := CelsiusParaFahrenheit(test.input)
+		if result != test.expected {
+			t.Errorf("CelsiusParaFahrenheit(%f) = %f; expected %f", test.input, result, test.expected)
+		}
+	}
+}
+
+func TestCelsiusParaRankine(t *testing.T) {
+	tests := []struct {
+		input    float64
+		expected float64
+	}{
+		{0, 491.67},
+		{-273.15, 0},
+		{100, 671.67},
+	}
+
+	for _, test := range tests {
+		result := CelsiusParaRankine(test.input)
 		result = math.Round(result*100) / 100 // Arredondar para 2 casas decimais
 		if result != test.expected {
-			t.Errorf("FahrenheitParaRankine(%f) = %f; want %f", test.input, result, test.expected)
-		}
-	}
-}
-
-func TestFahrenheitParaKelvin(t *testing.T) {
-	tests := []struct {
-		input    float64
-		expected float64
-	}{
-		{32, 273.15},
-		{0, 255.372},
-		{100, 310.928},
-	}
-
-	for _, test := range tests {
-		result := FahrenheitParaKelvin(test.input)
-		result = math.Round(result*1000) / 1000 // Arredondar para 3 casas decimais
-		if result != test.expected {
-			t.Errorf("FahrenheitParaKelvin(%f) = %f; expected %f", test.input, result, test.expected)
-		}
-	}
-}
-
-func TestFahrenheitParaCelsius(t *testing.T) {
-	tests := []struct {
-		input    float64
-		expected float64
-	}{
-		{32, 0},
-		{0, -17.7778},
-		{100, 37.7778},
-	}
-
-	for _, test := range tests {
-		result := FahrenheitParaCelsius(test.input)
-		result = math.Round(result*10000) / 10000 // Arredondar para 4 casas decimais
-		if result != test.expected {
-			t.Errorf("FahrenheitParaCelsius(%f) = %f; expected %f", test.input, result, test.expected)
+			t.Errorf("CelsiusParaRankine(%f) = %f; expected %f", test.input, result, test.expected)
 		}
 	}
 }
