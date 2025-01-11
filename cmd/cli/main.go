@@ -15,6 +15,11 @@ func main() {
 	var opcao int
 	fmt.Scan(&opcao)
 
+	if opcao < 1 || opcao > 3 {
+		fmt.Println("Opção inválida")
+		return
+	}
+
 	fmt.Println("Qual valor você deseja converter?")
 	var valor float64
 	fmt.Scan(&valor)
