@@ -40,15 +40,13 @@ func main() {
 	switch opcao {
 	case 1:
 		// Temperatura
-		fmt.Printf("%.2fºF é igual a %.2fºC\n", valor, conversion.FahrenheitParaCelsius(valor))
-		fmt.Printf("%.2fºF é igual a %.2fK\n", valor, conversion.FahrenheitParaKelvin(valor))
-		fmt.Printf("%.2fºF é igual a %.2fºR\n", valor, conversion.FahrenheitParaRankine(valor))
-		fmt.Printf("%.2fºF é igual a %.2fºC\n", valor, conversion.FahrenheitParaCelsius(valor))
+		fmt.Printf("%.2fºC é igual a %.2fºF\n", valor, conversion.CelsiusParaFahrenheit(valor))
+		fmt.Printf("%.2fºC é igual a %.2fK\n", valor, conversion.CelsiusParaKelvin(valor))
+		fmt.Printf("%.2fºC é igual a %.2fºR\n", valor, conversion.CelsiusParaRankine(valor))
 	case 2:
 		// Peso
 		fmt.Printf("%.2fKg é igual a %.2fLb\n", valor, conversion.KgParaLb(valor))
 		fmt.Printf("%.2fKg é igual a %.2fOz\n", valor, conversion.KgParaOz(valor))
-		fmt.Printf("%.2fKg é igual a %.2fKg\n", valor, valor)
 	case 3:
 		// Distância
 		fmt.Printf("%.2fKm é igual a %.2fMi\n", valor, conversion.KmParaMi(valor))
